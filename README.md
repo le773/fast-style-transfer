@@ -87,6 +87,25 @@ You will need the following to run the above:
   - All the required NVIDIA software to run TF on a GPU (cuda, etc)
 - ffmpeg 3.1.3 if you want to stylize video
 
+```
+conda create -n style-transfer python=3.5
+activate style-transfer
+pip install tensorflow
+conda install scipy pillow
+```
+
+### 迁移风格
+
+1. 从[fast-style-transfer](https://github.com/lengstrom/fast-style-transfer "fast-style-transfer")资源库中下载 Zip 归档文件并解压。你可以通过点击右侧的亮绿色按钮进行下载。
+2. 从此处下载 Rain Princess 检查点，将其放在 fast-style-transfer 文件夹中。检查点文件是已经调谐参数的模型。使用此检查点文件后我们不需要再训练该模型，可以直接使用。
+3. 将你要调整格式的图片放到 fast-style-transfer 文件夹。
+4. 进入你之前创建的 Conda 环境（如果不在里面的话）。
+5. 在终端里，转到 fast-style-transfer 文件夹并输入
+
+```
+python evaluate.py --checkpoint ./rain-princess.ckpt --in-path <path_to_input_file> --out-path ./output_image.jpg
+```
+
 ### Citation
 ```
   @misc{engstrom2016faststyletransfer,
